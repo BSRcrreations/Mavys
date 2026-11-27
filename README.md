@@ -4,6 +4,18 @@ A rural-care prototype with a restrained indigo identity, liquid-glass navigatio
 
 [Version 11 source branch](https://github.com/BSRcrreations/Mavys/tree/version-11)
 
+## Update an existing clone to Version 11
+
+```sh
+git fetch origin
+git switch version-11
+git pull --ff-only origin version-11
+npm install
+npm run dev
+```
+
+Run these commands inside your existing MAVYS repository. If you have not cloned it yet, use `git clone --branch version-11 https://github.com/BSRcrreations/Mavys.git` and then `cd Mavys`.
+
 ## Run the React frontend and credential backend
 
 Use Node.js 22.12+.
