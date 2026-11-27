@@ -1,3 +1,27 @@
+# MAVYS — Version 13
+
+Photo-led editorial healthcare UI, 29 fictional sample doctors across Germany, direct doctor selection from Messages, and clinician-reviewed symptom intake with optional sample image upload. The urgent-help navigation item is removed; the patient floating emergency button remains.
+
+## Run V13
+
+```sh
+git pull --ff-only origin main
+npm install
+npm run dev
+```
+
+Open http://localhost:5173. Alternatively run `node server.mjs` for the static edition and credential API. No npm dependencies are needed for that edition.
+
+## Symptom workflow
+
+Patient → Symptoms → describe fictional symptoms, choose preferred specialty, optional JPEG/PNG/WebP under 350 KB, consent, send. The browser assigns one available matching sample practice with the fewest pending submissions. Doctor → Symptom reviews → manually review the submission → reply, offer a follow-up appointment, or move to the existing simulated prescription workflow. A prescription outcome requires subsequent clinician approval in Care & prescriptions; no autonomous clinical decision or actual prescription is issued. An appointment offer is not a confirmed booking. Data and images are stored in the browser; the shared doctor workspace is an unverified demo, not a secure medical inbox. Use fictional details only. For emergencies call 112, or 116117 for urgent non-life-threatening care.
+
+## Images
+
+Care photograph: Cedric Fauntleroy, https://www.pexels.com/photo/a-doctor-talking-to-a-patient-while-holding-a-tablet-4266936/ . Remote consultation: Tima Miroshnichenko, https://www.pexels.com/photo/a-doctor-doing-online-consultation-8376266/ . Free Pexels images referenced from their CDN with attribution; network access is required to display them and neutral fallback surfaces remain if unavailable. Photographs are illustrative, not portraits of listed sample doctors.
+
+The German directory is fictional, not live availability or real messaging. V12 voice remains browser speech recognition and rule-based intake. Existing credential backend is retained. Earlier documentation follows.
+
 # MAVYS — Version 12
 
 Editorial healthcare typography, nationwide fictional doctor directory, role-correct messaging, checkmark consultation selection and interactive browser voice intake.

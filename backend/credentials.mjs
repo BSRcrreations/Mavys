@@ -49,7 +49,7 @@ export function createApi(store,{secure=false,origin}={}){
    if(!String(req.headers['content-type']||'').startsWith('application/json')){send(res,415,{error:'JSON required'});return true}
   }
   try{
-   if(path==='/api/health'&&method==='GET'){send(res,200,{ok:true,version:'12.0.0',scope:'fictional credential workflow'});return true}
+   if(path==='/api/health'&&method==='GET'){send(res,200,{ok:true,version:'13.0.0',scope:'fictional credential workflow'});return true}
    if(path==='/api/doctor/session'&&method==='GET'){const s=session(req);send(res,200,{account:s?.a?publicProfile(s.a):null});return true}
    if(path==='/api/doctor/auth'&&method==='POST'){
     const body=await json(req),email=cleanEmail(body.email),key=req.socket.remoteAddress||'local',now=Date.now(),bucket=attempts.get(key)||{start:now,count:0};
