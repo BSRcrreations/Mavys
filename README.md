@@ -1,4 +1,4 @@
-# MAVYS 6 — Care, closer to home
+# MAVYS 6.1 — Care, closer to home
 
 Run `npm run dev` with Node.js 18+ and open http://localhost:5173. GitHub Pages supports the static site over HTTPS.
 
@@ -11,3 +11,6 @@ Month, week and 31-day agenda, filterable event categories, date details, villag
 
 ## Interface refinements
 EN/DE interface labels (translation coverage is partial), persistent local session, example postcode 97469 distance filter, local two-role messages, emergency service links, dashboard week strip and appointment calendar tab. No real geolocation, chat server, notifications or clinical service. Sign out on shared devices.
+
+## Motion system
+Navigation-driven staggered entrances, spring-like pressed states and segmented controls, calendar changes, chat transitions and voice motion while speech is active. Reduced-motion preferences are respected; emergency links remain immediate.
