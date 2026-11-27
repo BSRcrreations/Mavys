@@ -1,3 +1,9 @@
+# MAVYS 7 — React migration
+
+Modern development: use Node.js 22.12+ (or 20.19+), run `npm install` then `npm run dev`. Open http://localhost:5173. `npm run build` type-checks and creates `dist/`; `npm run preview` previews it. Deploy `dist/` with a static host or GitHub Pages Actions. The repository root `index.html` remains the working 6.1 static fallback for branch-based Pages; `npm run dev:legacy` serves it without npm dependencies.
+
+The modern build mounts real React/TypeScript account and week-calendar components with Motion and Lucide icons. The remaining workflows are deliberately preserved behind a compatibility bridge, not yet fully migrated. Browser-local accounts, chats and fictional medical records are not production authentication or a clinical backend.
+
 # MAVYS 6.1 — Care, closer to home
 
 Run `npm run dev` with Node.js 18+ and open http://localhost:5173. GitHub Pages supports the static site over HTTPS.
