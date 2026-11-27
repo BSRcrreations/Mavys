@@ -1,6 +1,6 @@
 {
   "name": "mavys",
-  "version": "10.0.0",
+  "version": "11.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -8,7 +8,9 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host 127.0.0.1",
     "start": "node server.mjs",
-    "dev:legacy": "node server.mjs"
+    "dev:legacy": "node server.mjs",
+    "review:doctor": "node backend/review.mjs",
+    "dev:static": "node server.mjs"
   },
   "engines": {
     "node": ">=20.19.0"

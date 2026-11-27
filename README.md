@@ -1,36 +1,46 @@
-# MAVYS — Version 10 (Trail UI)
+# MAVYS — Version 11 (Studio UI)
 
-**Version 10 source:** [version-10 branch](https://github.com/BSRcrreations/Mavys/tree/version-10) | [Download ZIP](https://github.com/BSRcrreations/Mavys/archive/refs/heads/version-10.zip)
+A rural-care prototype with a restrained indigo identity, liquid-glass navigation and a purpose-built clinical workspace.
 
-Liquid-glass motion and the existing indigo palette remain intact. Consultation styles: telephone (indigo), video (violet), in person (teal), prescription review (amber). The same labelled colour badges appear in doctor search, appointment records, doctor inbox and calendar details. Selection cards keep the existing native form control and booking workflow. Colours are not urgency indicators.
+[Version 11 source branch](https://github.com/BSRcrreations/Mavys/tree/version-11)
 
-## Run locally
+## Run the React frontend and credential backend
 
-Node.js 22.12+ recommended. `npm install` then `npm run dev` (React/Vite). `npm run dev:legacy` serves the dependency-free fallback. Both use the same local data and features. GitHub Pages requires repository administrator setup.
+Use Node.js 22.12+.
 
-# MAVYS — Version 8 (Trail UI)
+```sh
+npm install
+npm run dev
+```
 
-Same indigo palette, layered glass surfaces, animated navigation indicators, restrained highlights, and tactile interaction feedback. Doctor workspace excludes emergency and voice-assistance controls. Open slots show general callback capacity plus remaining published calendar capacity for today and future dates. Calendar bookings use their date pool; callbacks use the general pool. No automatic historical data reset.
+Open http://localhost:5173. Vite serves the existing workflows and React components; the Node credential API is mounted as development middleware on the same origin.
 
-# MAVYS 7 — React migration
+For a production-style local build, run `npm run build` and then `npm run preview` to inspect the frontend only. For the credential API with built assets, set MAVYS_STATIC_DIR=dist and run `npm start`. Alternatively `npm run dev:static` starts the backend and dependency-free frontend from the repository root.
 
-Modern development: use Node.js 22.12+ (or 20.19+), run `npm install` then `npm run dev`. Open http://localhost:5173. `npm run build` type-checks and creates `dist/`; `npm run preview` previews it. Deploy `dist/` with a static host or GitHub Pages Actions. The repository root `index.html` remains the working 6.1 static fallback for branch-based Pages; `npm run dev:legacy` serves it without npm dependencies.
+GitHub Pages hosts static files only. It supports the fictional credential draft mode but cannot run the verification API. Never publish the .mavys-data directory.
 
-The modern build mounts real React/TypeScript account and week-calendar components with Motion and Lucide icons. The remaining workflows are deliberately preserved behind a compatibility bridge, not yet fully migrated. Browser-local accounts, chats and fictional medical records are not production authentication or a clinical backend.
+## Doctor career and credential review
 
-# MAVYS 6.1 — Care, closer to home
+Sign in or register as a doctor, then open Professional profile. Create a separate credential account using the same fictional email and a unique sample password. Complete career details, qualifications, licensing authority and a fictional credential reference, save a draft or submit for review.
 
-Run `npm run dev` with Node.js 18+ and open http://localhost:5173. GitHub Pages supports the static site over HTTPS.
+An independent local reviewer can simulate a decision. Stop the server before using the CLI (single-process JSON persistence), then restart it:
 
-Create an account with a fictional email and unique sample password, then sign in with the same role. Voice help requires no account. Patient and doctor accounts are local and unverified; fictional care records are shared in this browser. Never enter real health or personal information. No actual phone, medical service, pharmacy or emergency integration is connected.
+```sh
+npm run review:doctor -- doctor@example.com changes_requested "Please complete the sample career history."
+npm run review:doctor -- doctor@example.com approved "Fictional evidence reviewed."
+```
 
-Accounts use browser-local storage and PBKDF2 password hashing, not server-side authentication. Voice provides a guided interactive intake and optional browser text-to-speech. Production requires authenticated backend, access isolation, clinical review, privacy and security controls.
+Use one command for each pending application; an approved application is no longer pending. Reconnect and refresh the status. Approval here is explicitly a sample review, not legal verification of a real medical licence.
 
-## Care planner
-Month, week and 31-day agenda, filterable event categories, date details, village visits, in-app reminder preferences and ICS export. Doctors publish capacity, time and consultation mode, with optional weekly repeats. Closing a date preserves existing confirmed requests. No live calendar sync, external notifications or real healthcare booking.
+Credential account passwords are hashed using scrypt with random salts; sessions use HttpOnly SameSite cookies. The credential backend stores only its own fictional profiles in .mavys-data/credentials.json and is not a medical record system. The existing care accounts, messages, schedules, and clinical workflows remain browser-local simulation. No actual licence documents or patient data should be entered. No live clinical service, call, prescription, pharmacy or location integration.
 
-## Interface refinements
-EN/DE interface labels (translation coverage is partial), persistent local session, example postcode 97469 distance filter, local two-role messages, emergency service links, dashboard week strip and appointment calendar tab. No real geolocation, chat server, notifications or clinical service. Sign out on shared devices.
+## Design and sources
 
-## Motion system
-Navigation-driven staggered entrances, spring-like pressed states and segmented controls, calendar changes, chat transitions and voice motion while speech is active. Reduced-motion preferences are respected; emergency links remain immediate.
+- `index.html` static entry; `modern.html` React/Vite entry
+- `src/` TypeScript and React components
+- `app.js`, `experience.js`, `planner.js`, `refinement.js`: care workflows
+- `motion.js`, `trail.js`, `studio.js`: interaction, profile and credential views
+- `styles.css`, `experience.css`, `planner.css`, `refinement.css`, `motion.css`, `trail.css`, `studio.css`: visual layers
+- `backend/credentials.mjs`, `backend/review.mjs`, `server.mjs`: server API, local reviewer and static hosting
+
+Telephone: slate blue. Video: muted plum. In-person: teal. Prescription review: ochre. Colour indicates consultation type only, not clinical urgency. Emergency assistance remains patient-only.
