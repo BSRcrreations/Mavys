@@ -1,4 +1,4 @@
-# MAVYS 5 — Care, closer to home
+# MAVYS 6 — Care, closer to home
 
 Run `npm run dev` with Node.js 18+ and open http://localhost:5173. GitHub Pages supports the static site over HTTPS.
 
@@ -8,3 +8,6 @@ Accounts use browser-local storage and PBKDF2 password hashing, not server-side 
 
 ## Care planner
 Month, week and 31-day agenda, filterable event categories, date details, village visits, in-app reminder preferences and ICS export. Doctors publish capacity, time and consultation mode, with optional weekly repeats. Closing a date preserves existing confirmed requests. No live calendar sync, external notifications or real healthcare booking.
+
+## Interface refinements
+EN/DE interface labels (translation coverage is partial), persistent local session, example postcode 97469 distance filter, local two-role messages, emergency service links, dashboard week strip and appointment calendar tab. No real geolocation, chat server, notifications or clinical service. Sign out on shared devices.
