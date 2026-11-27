@@ -5,7 +5,7 @@ const plannerWeek=key=>plannerShift(key,-((new Date(key+'T12:00:00').getDay()+6)
 const plannerRequests=key=>state.requests.filter(r=>r.date===key&&!['cancelled','redirected'].includes(r.status));
 const plannerAccepted=key=>plannerRequests(key).filter(r=>r.doctor===providers[0].name&&['accepted','reviewed','prescribed','delivered'].includes(r.status)).length;
 const plannerWindow=key=>state.schedule[key]?.window||'';
-const plannerCanBook=key=>key>=todayKey()&&remaining(key)>0&&state.availability.on&&state.availability.new&&state.availability.slots>0;
+const plannerCanBook=key=>key>=todayKey()&&remaining(key)>0&&state.availability.on&&state.availability.new;
 const plannerFullDate=key=>new Date(key+'T12:00:00').toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'});
 const plannerEvents=key=>{const a=state.schedule[key], events=[];if(a){if(a.visit)events.push({kind:'visit',text:'Village visit',detail:a.visit});events.push({kind:'availability',text:remaining(key)+' free slots',detail:a.window})}for(const r of plannerRequests(key))events.push({kind:'appointment',text:r.status==='pending'?'Requested':'Appointment',detail:r.window,id:r.id});if(state.reminders.includes(key))events.push({kind:'reminder',text:'Reminder',detail:state.reminderPrefs?.[key]||'On the day'});return events.filter(e=>plannerFilter==='all'||e.kind===plannerFilter)};
 const plannerSync=key=>{selectedDate=key;calendarMonth=new Date(key+'T12:00:00');calendarMonth.setDate(1)};

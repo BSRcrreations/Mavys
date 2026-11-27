@@ -9,9 +9,10 @@ import '../experience.css';
 import '../planner.css';
 import '../refinement.css';
 import '../motion.css';
+import '../trail.css';
 import './modern.css';
 
-const scripts=['app.js','experience.js','planner.js','refinement.js','motion.js','bridge.js'];
+const scripts=['app.js','experience.js','planner.js','refinement.js','motion.js','trail.js','bridge.js'];
 function loadClassic(name:string):Promise<void>{
  return new Promise((resolve,reject)=>{
   const script=document.createElement('script');script.src=import.meta.env.BASE_URL+name;script.async=false;script.onload=()=>resolve();script.onerror=()=>reject(new Error('Unable to load '+name));document.head.appendChild(script);

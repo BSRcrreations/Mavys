@@ -1,3 +1,7 @@
+# MAVYS — Version 8 (Trail UI)
+
+Same indigo palette, layered glass surfaces, animated navigation indicators, restrained highlights, and tactile interaction feedback. Doctor workspace excludes emergency and voice-assistance controls. Open slots show general callback capacity plus remaining published calendar capacity for today and future dates. Calendar bookings use their date pool; callbacks use the general pool. No automatic historical data reset.
+
 # MAVYS 7 — React migration
 
 Modern development: use Node.js 22.12+ (or 20.19+), run `npm install` then `npm run dev`. Open http://localhost:5173. `npm run build` type-checks and creates `dist/`; `npm run preview` previews it. Deploy `dist/` with a static host or GitHub Pages Actions. The repository root `index.html` remains the working 6.1 static fallback for branch-based Pages; `npm run dev:legacy` serves it without npm dependencies.

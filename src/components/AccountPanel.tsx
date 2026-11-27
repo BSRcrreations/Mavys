@@ -13,8 +13,8 @@ export function AccountPanel({s}:{s:CareSnapshot}) {
    <h2>{signup?t('Create your account.','Konto erstellen.'):t('Welcome back.','Willkommen zurück.')}</h2>
    <p>{signup?t('Choose how you want to use MAVYS.','Wählen Sie, wie Sie MAVYS nutzen möchten.'):t('Sign in to continue to your care.','Melden Sie sich an, um fortzufahren.')}</p>
   </div>
-  <div className="auth-role" role="group" aria-label={t('Account type','Kontotyp')}>
-   {(['patient','doctor'] as const).map(r=><button key={r} type="button" className={s.loginRole===r?'is-active':''} data-act={'login-role:'+r} aria-pressed={s.loginRole===r}>{r==='patient'?<UserRound size={19}/>:<Stethoscope size={19}/>} {r==='patient'?'Patient':t('Doctor','Arzt')}</button>)}
+  <div className="auth-role trail-react-role" role="group" aria-label={t('Account type','Kontotyp')}>
+   {(['patient','doctor'] as const).map(r=><button key={r} type="button" className={s.loginRole===r?'is-active':''} data-act={'login-role:'+r} aria-pressed={s.loginRole===r}>{s.loginRole===r&&<motion.span className="trail-react-pill" layoutId="trail-account-role" transition={{type:"spring",stiffness:360,damping:30}}/>}{r==='patient'?<UserRound size={19}/>:<Stethoscope size={19}/>} {r==='patient'?'Patient':t('Doctor','Arzt')}</button>)}
   </div>
   <form id="account-form" className="auth-fields">
    {signup&&<div className="field"><label htmlFor="auth-name">{t('Your name','Ihr Name')}</label><input id="auth-name" name="name" autoComplete="nickname" required maxLength={60} defaultValue={s.authValues.name}/></div>}
