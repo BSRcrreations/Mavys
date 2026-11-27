@@ -10,7 +10,8 @@
     "start": "node server.mjs",
     "dev:legacy": "node server.mjs",
     "review:doctor": "node backend/review.mjs",
-    "dev:static": "node server.mjs"
+    "dev:static": "node server.mjs",
+    "test": "node --test backend/credentials.test.mjs"
   },
   "engines": {
     "node": ">=20.19.0"
