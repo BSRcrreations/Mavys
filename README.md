@@ -8,6 +8,17 @@ A rural-care prototype with a restrained indigo identity, liquid-glass navigatio
 
 [Open the GitHub Pages edition](https://bsrcrreations.github.io/Mavys/) after Pages has been enabled by a repository administrator (Settings → Pages → Deploy from a branch → main → / (root)). All static frontend files are committed individually and need no npm installation. The hosted edition cannot execute the Node credential API; it supports local fictional profile drafts only.
 
+## Latest V11 on default main
+
+```sh
+git clone https://github.com/BSRcrreations/Mavys.git
+cd Mavys
+npm install
+npm run dev
+```
+
+For an existing clone, use `git switch main` and `git pull --ff-only origin main` before running npm. Browser-only alternative: [Version 11](https://bsrcrreations.github.io/Mavys/version-11/), subject to Pages deployment.
+
 ## Update an existing clone to Version 11
 
 ```sh

@@ -6,7 +6,7 @@ function trailDecorate(){
  root.querySelectorAll('.card,.tile,.hero,.planner-stat').forEach(el=>el.classList.add('trail-surface'));
  root.querySelectorAll('.btn:not(.danger),.choice,.mini-day,.planner-day').forEach(el=>el.classList.add('trail-touch'));
  const h=root.querySelector('.welcome-top,.top-left');
- if(h&&!h.querySelector('.trail-release')){const badge=document.createElement('span');badge.className='trail-release';badge.textContent='Version 10 · Trail UI';h.appendChild(badge)}
+ if(h&&!h.querySelector('.trail-release')){const badge=document.createElement('span');badge.className='trail-release';badge.textContent='Version 11 · Studio UI';h.appendChild(badge)}
 }
 function trailWrap(fn){return function(...args){const outer=trailDepth++===0;try{return fn.apply(this,args)}finally{trailDepth--;if(outer)trailDecorate()}}}
 render=trailWrap(trailBaseRender);renderLogin=trailWrap(trailBaseLogin);
