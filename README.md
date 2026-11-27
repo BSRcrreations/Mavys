@@ -1,7 +1,7 @@
-# MAVYS 3.0 — Care, closer to home
+# MAVYS 4 — Care, closer to home
 
-Open `index.html` in Chrome after extracting all files, or run `npm run dev` with Node 18+ and visit http://127.0.0.1:5173. No dependencies. GitHub Pages: deploy main / root. Keep assets and CSS/JS in the same relative paths.
+Run `npm run dev` with Node.js 18+ and open http://localhost:5173. GitHub Pages supports the static site over HTTPS.
 
-Demo login: select Patient, Doctor, or Voice. Role switching is intentional for the presentation, not authentication. Doctor > Calendar > choose a date, enter slots and village visit location, publish. Patient > Calendar > same date > request or save reminder. Doctor > Patient requests > review/accept/reply; Patient > My appointments > see reply. Medication and telephone simulations remain. Use fictional data only. No actual medical triage, prescriptions, orders, calls, notifications, live geography, or real authentication. Reminders are in-app only.
+Create an account with a fictional email and unique sample password, then sign in with the same role. Voice help requires no account. Patient and doctor accounts are local and unverified; fictional care records are shared in this browser. Never enter real health or personal information. No actual phone, medical service, pharmacy or emergency integration is connected.
 
-The user-provided sketch is included as a faint decorative login background. Main screens use a matching light grid texture. No external libraries. Browser state is local to the device.
+Accounts use browser-local storage and PBKDF2 password hashing, not server-side authentication. Voice provides a guided interactive intake and optional browser text-to-speech. Production requires authenticated backend, access isolation, clinical review, privacy and security controls.
