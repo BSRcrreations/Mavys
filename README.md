@@ -4,6 +4,10 @@ A rural-care prototype with a restrained indigo identity, liquid-glass navigatio
 
 [Version 11 source branch](https://github.com/BSRcrreations/Mavys/tree/version-11)
 
+## Open in your browser — no installation
+
+[Open the GitHub Pages edition](https://bsrcrreations.github.io/Mavys/) after Pages has been enabled by a repository administrator (Settings → Pages → Deploy from a branch → main → / (root)). All static frontend files are committed individually and need no npm installation. The hosted edition cannot execute the Node credential API; it supports local fictional profile drafts only.
+
 ## Update an existing clone to Version 11
 
 ```sh
