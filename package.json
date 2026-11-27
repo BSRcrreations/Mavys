@@ -1,1 +1,1 @@
-{"name":"mavys-premium","version":"1.0.0","private":true,"type":"module","description":"Interactive rural healthcare hackathon prototype","scripts":{"dev":"node server.mjs","start":"node server.mjs"},"engines":{"node":">=18"}}
+{"name":"mavys","version":"3.0.0","private":true,"type":"module","scripts":{"dev":"node server.mjs","start":"node server.mjs"},"engines":{"node":">=18"}}

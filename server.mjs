@@ -1,10 +1,4 @@
 import {createServer} from 'node:http';
 import {readFile} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
-const root = fileURLToPath(new URL('./index.html', import.meta.url));
-const port = Number(process.env.PORT || 5173);
-createServer(async (req,res)=>{
-  if(req.url==='/' || req.url?.startsWith('/index.html')){
-    try{res.writeHead(200,{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store'});res.end(await readFile(root));}catch{res.writeHead(500);res.end('Could not read index.html');}
-  }else{res.writeHead(404);res.end('Not found');}
-}).listen(port,'127.0.0.1',()=>console.log(`MAVYS ready: http://localhost:${port}`));
+const allowed={'/':'index.html','/index.html':'index.html','/styles.css':'styles.css','/app.js':'app.js','/assets/sketch.jpg':'assets/sketch.jpg'};const mime={html:'text/html; charset=utf-8',css:'text/css; charset=utf-8',js:'text/javascript; charset=utf-8',jpg:'image/jpeg'};const port=Number(process.env.PORT||5173);createServer(async(req,res)=>{try{const f=allowed[new URL(req.url,'http://localhost').pathname];if(!f){res.writeHead(404);return res.end('Not found')}const b=await readFile(fileURLToPath(new URL(f,import.meta.url)));res.writeHead(200,{'Content-Type':mime[f.split('.').pop()]});res.end(b)}catch{res.writeHead(500);res.end('Server error')}}).listen(port,'127.0.0.1',()=>console.log('MAVYS: http://127.0.0.1:'+port));
