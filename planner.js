@@ -3,7 +3,7 @@ let plannerView='month', plannerFilter='all';
 const plannerShift=(key,days)=>{const d=new Date(key+'T12:00:00');d.setDate(d.getDate()+days);return todayKey(d)};
 const plannerWeek=key=>plannerShift(key,-((new Date(key+'T12:00:00').getDay()+6)%7));
 const plannerRequests=key=>state.requests.filter(r=>r.date===key&&!['cancelled','redirected'].includes(r.status));
-const plannerAccepted=key=>plannerRequests(key).filter(r=>r.doctor===providers[0].name&&['accepted','reviewed','prescribed','delivered'].includes(r.status)).length;
+const plannerAccepted=key=>plannerRequests(key).filter(r=>r.doctor===providers[0].name&&r.capacityPool!=='callback'&&['accepted','reviewed','prescribed','delivered'].includes(r.status)).length;
 const plannerWindow=key=>state.schedule[key]?.window||'';
 const plannerCanBook=key=>key>=todayKey()&&remaining(key)>0&&state.availability.on&&state.availability.new;
 const plannerFullDate=key=>new Date(key+'T12:00:00').toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'});
