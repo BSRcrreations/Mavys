@@ -1,3 +1,13 @@
+# MAVYS — Version 10 (Trail UI)
+
+**Version 10 source:** [version-10 branch](https://github.com/BSRcrreations/Mavys/tree/version-10) | [Download ZIP](https://github.com/BSRcrreations/Mavys/archive/refs/heads/version-10.zip)
+
+Liquid-glass motion and the existing indigo palette remain intact. Consultation styles: telephone (indigo), video (violet), in person (teal), prescription review (amber). The same labelled colour badges appear in doctor search, appointment records, doctor inbox and calendar details. Selection cards keep the existing native form control and booking workflow. Colours are not urgency indicators.
+
+## Run locally
+
+Node.js 22.12+ recommended. `npm install` then `npm run dev` (React/Vite). `npm run dev:legacy` serves the dependency-free fallback. Both use the same local data and features. GitHub Pages requires repository administrator setup.
+
 # MAVYS — Version 8 (Trail UI)
 
 Same indigo palette, layered glass surfaces, animated navigation indicators, restrained highlights, and tactile interaction feedback. Doctor workspace excludes emergency and voice-assistance controls. Open slots show general callback capacity plus remaining published calendar capacity for today and future dates. Calendar bookings use their date pool; callbacks use the general pool. No automatic historical data reset.

@@ -1,4 +1,4 @@
-/* MAVYS Version 8 (Trail UI) — layered liquid glass */
+/* MAVYS Version 10 (Trail UI) — layered liquid glass */
 :root{--trail-ink:#20263f;--trail-blue:#3648ad;--trail-glass:rgba(255,255,255,.86);--trail-edge:rgba(255,255,255,.94);--trail-spring:cubic-bezier(.18,.85,.22,1.16);--trail-depth:0 12px 36px rgba(36,48,108,.075),0 1px 2px rgba(36,48,108,.055)}
 body:not(.contrast){background-color:#f6f7fc;background-image:radial-gradient(ellipse at 93% 7%,#e8ecff 0,transparent 37%),radial-gradient(ellipse at 7% 60%,#eef0ff 0,transparent 36%);background-attachment:fixed}
 body:not(.contrast) .top,body:not(.contrast) .top-right,body:not(.contrast) .mobile-nav{backdrop-filter:blur(22px) saturate(155%);-webkit-backdrop-filter:blur(22px) saturate(155%)}
@@ -26,3 +26,29 @@ body.contrast .trail-surface::before,body.contrast .trail-ripple{display:none}
 @supports not (backdrop-filter:blur(1px)){body:not(.contrast) .top,body:not(.contrast) .mobile-nav{background:#f6f7fc}}
 @media(max-width:590px){.trail-release{display:none}.capacity-breakdown{gap:3px}.capacity-breakdown span{font-size:9px;padding:3px 4px}.capacity-caption{font-size:9px}.modal-wrap{backdrop-filter:blur(5px)}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.trail-ripple{display:none}}
+
+/* Consultation palette: indigo phone, violet video, teal in-person, amber prescription. */
+.consult-phone{--consult-ink:#3448a9;--consult-tint:#e9edff;--consult-edge:#c5cff5;--consult-glow:#d9e1ff;--consult-solid:#5368ce}
+.consult-video{--consult-ink:#6640a1;--consult-tint:#f1eaff;--consult-edge:#ddccf5;--consult-glow:#e9dcfb;--consult-solid:#8a65c5}
+.consult-visit{--consult-ink:#16655f;--consult-tint:#e5f4f0;--consult-edge:#b8ddd5;--consult-glow:#d0eee5;--consult-solid:#388a80}
+.consult-prescription{--consult-ink:#88521e;--consult-tint:#fff1df;--consult-edge:#ecd4b0;--consult-glow:#ffe4c1;--consult-solid:#b77937}
+.consult-general{--consult-ink:#52617f;--consult-tint:#eff2f8;--consult-edge:#dce2ee;--consult-glow:#e6eaf5;--consult-solid:#7384ad}
+.consultation-badge{display:inline-flex;align-items:center;gap:5px;max-width:100%;padding:5px 9px;border-radius:9px;border:1px solid var(--consult-edge);background:var(--consult-tint);color:var(--consult-ink);font-weight:700;font-size:11px;line-height:1.35;vertical-align:middle;white-space:normal}
+.consultation-badge svg{width:15px;height:15px;flex:none}.consultation-options-inline{display:flex;flex-wrap:wrap;gap:5px}
+.consultation-record .consultation-badge{margin-top:6px}.consultation-record{border-inline-start:3px solid var(--consult-solid)!important}
+body:not(.contrast) .planner-slot[class*="consult-"]{background:linear-gradient(130deg,#fff,var(--consult-tint));border-color:var(--consult-edge)}
+.planner-slot[class*="consult-"] .slot-meter span{background:var(--consult-solid)}
+.consult-picker{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:6px}
+.consult-picker.single{grid-template-columns:1fr}
+.consult-choice{position:relative;display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:8px;min-width:0;min-height:88px;padding:12px 10px 12px;border-radius:15px;background:#fff;border:1px solid #e0e5f0;box-shadow:0 2px 7px #22365c09;transition:background 260ms ease,border-color 260ms ease,transform 330ms var(--trail-spring),box-shadow 280ms ease}
+.consult-choice .consultation-badge{background:transparent;border:0;padding:0;font-size:13px;padding-right:18px}
+.consult-choice small{font-size:11px;line-height:1.4;color:#59637a;max-width:100%}
+.consult-choice.selected{background:linear-gradient(145deg,#fff,var(--consult-tint));border-color:var(--consult-solid);box-shadow:inset 0 1px 0 #fff,0 5px 16px var(--consult-glow)}
+.consult-check{position:absolute;right:9px;top:11px;width:18px;height:18px;border:1px solid var(--consult-edge);border-radius:50%;display:grid;place-items:center;color:var(--consult-ink)}
+.consult-choice.selected .consult-check{background:var(--consult-solid);border-color:var(--consult-solid);color:white}
+.consult-check svg{width:13px;height:13px}
+.consult-choice:active{transform:scale(.97)}.consult-native{font-size:14px!important}
+@media(hover:hover) and (pointer:fine){.consult-choice:hover{transform:translateY(-2px);border-color:var(--consult-solid);box-shadow:0 6px 18px var(--consult-glow)}}
+@media(max-width:420px){.consult-picker{grid-template-columns:1fr}.consult-choice{min-height:68px}}
+@media(prefers-reduced-motion:reduce){.consult-choice{transition:none!important}}
+body.contrast .consult-choice,body.contrast .consultation-badge{background:white!important;color:#17233e;border:1px solid #354056}body.contrast .consult-choice.selected{outline:2px solid #354056}
