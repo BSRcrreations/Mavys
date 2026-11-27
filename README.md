@@ -1,4 +1,25 @@
-# MAVYS — Version 11 (Studio UI)
+# MAVYS — Version 12
+
+Editorial healthcare typography, nationwide fictional doctor directory, role-correct messaging, checkmark consultation selection and interactive browser voice intake.
+
+## Start V12
+
+```sh
+git clone https://github.com/BSRcrreations/Mavys.git
+cd Mavys
+npm install
+npm run dev
+```
+
+Existing clones: `git pull --ff-only origin main`. Open http://localhost:5173. `node server.mjs` also serves the static frontend and credential API without npm dependencies. V12 is on main. The browser-only build is in `version-12/` (GitHub Pages deployment required).
+
+## Voice and directory
+
+Use Voice call on the patient dashboard or sign-in screen. The browser asks administrative questions, accepts speech recognition where supported (typically Chromium and HTTPS/localhost), reads replies aloud, and allows typing instead. The microphone is user-initiated. Only fictional information; speech recognition may use browser-vendor services. It uses rule-based intent recognition, not a generative model, and does not place a telephone call or provide medical advice. Confirm before saving a request.
+
+Directory entries across Germany are fictional sample providers. Category, city and name filtering, nearby pilot postcode/radius, and local browser messages are supported. There is no real-time German directory or provider messaging integration. Official doctor search is linked separately. The practice inbox and care records remain shared local demo data, not secure clinical data. V11 credential backend is retained.
+
+## V11 documentation (previous release)
 
 A rural-care prototype with a restrained indigo identity, liquid-glass navigation and a purpose-built clinical workspace.
 

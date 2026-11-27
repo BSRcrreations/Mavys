@@ -4,8 +4,8 @@ import react from '@vitejs/plugin-react';
 import { resolve } from 'node:path';
 import { copyFileSync, mkdirSync, cpSync, renameSync } from 'node:fs';
 
-const classic=['app.js','experience.js','planner.js','refinement.js','motion.js','trail.js','studio.js','bridge.js'];
-const styles=['styles.css','experience.css','planner.css','refinement.css','motion.css','trail.css','studio.css'];
+const classic=['app.js','experience.js','planner.js','refinement.js','motion.js','trail.js','studio.js','editorial.js','bridge.js'];
+const styles=['styles.css','experience.css','planner.css','refinement.css','motion.css','trail.css','studio.css','editorial.css'];
 export default defineConfig({
  base:'./',publicDir:false,
  plugins:[react(),{

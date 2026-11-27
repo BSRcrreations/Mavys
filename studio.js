@@ -20,7 +20,7 @@ const studioRender=render,studioAction=extraAction,studioSubmit=extraSubmit,stud
 go=function(r,p){studioGo(r,p);if(r==='doctor'&&p==='profile'&&studioAuth())void credentialLoad()};
 render=function(){studioRender();const root=document.getElementById('app');if(!root?.querySelector)return;
  if(studioAuth()&&route==='profile'){const page=root.querySelector('.page');if(page)page.innerHTML=credentialPage();const crumb=root.querySelector('.top-left span:not(.trail-release):last-of-type')||root.querySelector('.top-left span:nth-of-type(3)');if(crumb)crumb.textContent=studioT('Professional profile','Berufsprofil')}
- const top=root.querySelector('.welcome-top,.top-left');const badge=top?.querySelector('.trail-release');if(badge)badge.textContent='Version 11 · Studio UI';
+ const top=root.querySelector('.welcome-top,.top-left');const badge=top?.querySelector('.trail-release');if(badge)badge.textContent='Version 12';
  if(studioAuth()){const profile=root.querySelector('[data-act="nav:profile"] span');if(profile)profile.textContent=studioT('Professional profile','Berufsprofil')}
 };
 const oldStudioHome=home,oldStudioDoctor=doctorHome;

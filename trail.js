@@ -6,7 +6,7 @@ function trailDecorate(){
  root.querySelectorAll('.card,.tile,.hero,.planner-stat').forEach(el=>el.classList.add('trail-surface'));
  root.querySelectorAll('.btn:not(.danger),.choice,.mini-day,.planner-day').forEach(el=>el.classList.add('trail-touch'));
  const h=root.querySelector('.welcome-top,.top-left');
- if(h&&!h.querySelector('.trail-release')){const badge=document.createElement('span');badge.className='trail-release';badge.textContent='Version 11 · Studio UI';h.appendChild(badge)}
+ if(h&&!h.querySelector('.trail-release')){const badge=document.createElement('span');badge.className='trail-release';badge.textContent='Version 12';h.appendChild(badge)}
 }
 function trailWrap(fn){return function(...args){const outer=trailDepth++===0;try{return fn.apply(this,args)}finally{trailDepth--;if(outer)trailDecorate()}}}
 render=trailWrap(trailBaseRender);renderLogin=trailWrap(trailBaseLogin);
@@ -16,19 +16,12 @@ trailDecorate();
 
 /* Consultation selector: native form control remains the source of truth. */
 function trailConsultationPicker(){
- const select=document.getElementById('type');
- if(!select||!select.closest)return;
+ const select=document.getElementById('type');if(!select||!select.closest)return;
  const field=select.closest('.field');if(!field)return;
  let group=field.querySelector('.consult-picker');
- if(!group){group=document.createElement('div');group.className='consult-picker';group.setAttribute('role','group');group.setAttribute('aria-label',lang==='de'?'Sprechstundenart':'Consultation type');select.insertAdjacentElement('afterend',group)}
- const options=Array.from(select.options);group.innerHTML=options.map(o=>{
- const type=o.value,k=consultationKey(type),picked=type===select.value;
- const descriptions={phone:['A call from your practice','Rückruf durch Ihre Praxis'],video:['Speak face to face remotely','Gespräch per Video'],visit:['Visit the practice in person','Termin in der Praxis'],prescription:['Review with your clinician','Prüfung durch Ihre Praxis']};
- const desc=descriptions[k]||['Choose your appointment type','Wählen Sie Ihre Terminart'];
- return '<button type="button" class="consult-choice consult-'+k+(picked?' selected':'')+'" data-consult-value="'+esc(type)+'" aria-pressed="'+picked+'">'+consultationBadge(type)+'<small>'+esc(tx(desc[0],desc[1]))+'</small><span class="consult-check" aria-hidden="true">'+(picked?I('check'):'')+'</span></button>'
- }).join('');
- // Keep the native select available as a keyboard and screen-reader alternative.
- select.classList.add('consult-native');group.classList.toggle('single',options.length===1);
+ if(!group){group=document.createElement('div');group.className='consult-picker consult-checklist';group.setAttribute('role','group');group.setAttribute('aria-label',lang==='de'?'Sprechstundenart':'Consultation type');select.insertAdjacentElement('afterend',group)}
+ group.innerHTML=Array.from(select.options).map(o=>{const type=o.value,k=consultationKey(type),picked=type===select.value;return '<button type="button" class="consult-checkrow consult-'+k+(picked?' selected':'')+'" data-consult-value="'+esc(type)+'" aria-pressed="'+picked+'"><span>'+esc(consultationLabel(type))+'</span><span class="consult-check" aria-hidden="true">'+(picked?I('check'):'')+'</span></button>'}).join('');
+ select.classList.add('consult-native','consult-native-accessible');
 }
 const trailConsultBook=book;
 book=function(...args){trailConsultBook(...args);trailConsultationPicker()};
