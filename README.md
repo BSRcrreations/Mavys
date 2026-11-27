@@ -1,3 +1,23 @@
+# MAVYS — Version 14
+
+A larger editorial typography system (17px body, 15px secondary text, 44–68px page headings, 54–88px hero headings), layered photographs, floating glass information panel and five-story horizontal photo showcase with keyboard, swipe and arrow navigation. Existing clinical workflows retained; reduced-motion and larger-text preferences respected.
+
+## Run
+
+```sh
+git pull --ff-only origin main
+npm install
+npm run dev
+```
+
+Open http://localhost:5173. The static edition also runs with `node server.mjs`. Browser-only source is in version-14/ (GitHub Pages deployment required).
+
+V14 photography: Pexels images 4266936, 8376266, 8413336, 5214997, 5327864 and 8376212. Source links are included with each photograph. These are illustrative stock photographs, not portraits of sample doctors. Photos load from the Pexels CDN and require internet access; offline fallback surfaces are provided. Design inspiration: https://www.apple.com/healthcare/ (no Apple assets or proprietary fonts copied).
+
+The directory, voice and clinical features remain fictional prototype workflows, not live healthcare services. Doctor credential backend retained.
+
+## Previous release documentation
+
 # MAVYS — Version 13
 
 Photo-led editorial healthcare UI, 29 fictional sample doctors across Germany, direct doctor selection from Messages, and clinician-reviewed symptom intake with optional sample image upload. The urgent-help navigation item is removed; the patient floating emergency button remains.
