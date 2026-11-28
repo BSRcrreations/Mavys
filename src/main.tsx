@@ -15,8 +15,9 @@ import './modern.css';
 import '../editorial.css';
 import '../care.css';
 import '../visual.css';
+import '../voice.css';
 
-const scripts=['app.js','experience.js','planner.js','refinement.js','motion.js','trail.js','studio.js','editorial.js','care.js','visual.js','bridge.js'];
+const scripts=['app.js','experience.js','planner.js','refinement.js','motion.js','trail.js','studio.js','editorial.js','care.js','visual.js','voice.js','bridge.js'];
 function loadClassic(name:string):Promise<void>{
  return new Promise((resolve,reject)=>{
   const script=document.createElement('script');script.src=import.meta.env.BASE_URL+name;script.async=false;script.onload=()=>resolve();script.onerror=()=>reject(new Error('Unable to load '+name));document.head.appendChild(script);

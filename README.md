@@ -1,3 +1,26 @@
+# MAVYS — Version 15
+
+V15 voice studio: explicit consent, model selection, live browser dictation with interim speech-to-text, optional OpenAI recorded audio transcription and generated speech, editable transcript, request details, practice selection and explicit confirmation. No real phone connection or autonomous clinical decisions. V14 UI and previous features retained.
+
+## Run V15
+
+```powershell
+git pull --ff-only origin main
+npm.cmd install
+npm.cmd run dev
+```
+
+Open http://localhost:5173. Browser voice mode does not need a key. Microphone access requires permission and a supported browser (Chrome/Edge recommended). For OpenAI audio, set your own API key in the same PowerShell session before starting the server:
+
+```powershell
+$env:OPENAI_API_KEY = Read-Host 'Enter your OpenAI API key' -AsSecureString | ConvertFrom-SecureString -AsPlainText
+npm.cmd run dev
+```
+
+Use PowerShell 7 for this masked entry command, or configure the key securely through your environment. Never commit keys or paste them into chat. OpenAI mode uses gpt-4o-mini-transcribe and gpt-4o-mini-tts via server-only API endpoints; recording is push-to-talk, max 30 seconds per turn. Browser mode provides live interim text. OpenAI audio and browser speech can incur external processing; use fictional data only. OpenAI API usage may incur charges. Static GitHub Pages cannot execute model endpoints. The conversation phases are deterministic administrative intake, not a general-purpose medical model.
+
+## Previous release notes
+
 # MAVYS — Version 14
 
 A larger editorial typography system (17px body, 15px secondary text, 44–68px page headings, 54–88px hero headings), layered photographs, floating glass information panel and five-story horizontal photo showcase with keyboard, swipe and arrow navigation. Existing clinical workflows retained; reduced-motion and larger-text preferences respected.
