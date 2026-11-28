@@ -2,15 +2,39 @@
 
 A larger editorial typography system (17px body, 15px secondary text, 44–68px page headings, 54–88px hero headings), layered photographs, floating glass information panel and five-story horizontal photo showcase with keyboard, swipe and arrow navigation. Existing clinical workflows retained; reduced-motion and larger-text preferences respected.
 
-## Run
+## Public demo
+
+[Open the MAVYS browser-only demo](https://bsrcrreations.github.io/Mavys/)
+
+The public edition uses fictional data stored only in your browser. Patient and doctor demo workflows work, including the fictional directory, consultation requests and messages. The Node credential API and reviewer workflow are not available on GitHub Pages and are not included in the Pages artifact.
+
+## Development server
 
 ```sh
 git pull --ff-only origin main
-npm install
+npm ci
 npm run dev
 ```
 
-Open http://localhost:5173. The static edition also runs with `node server.mjs`. Browser-only source is in version-14/ (GitHub Pages deployment required).
+Open http://localhost:5173. Vite runs the React frontend and mounts the local credential API middleware.
+
+## Production Node server
+
+```sh
+npm ci
+npm run build
+MAVYS_STATIC_DIR=dist npm start
+```
+
+Open http://127.0.0.1:5173. This is the production-style path with the built frontend and local credential API.
+
+## Dependency-free browser-only edition
+
+```sh
+npm run dev:static
+```
+
+Open http://127.0.0.1:5173. This serves the committed static edition from the repository root; no build is required. The deployable GitHub Pages files are in `version-14/` and use relative URLs so they work below the `/Mavys/` project path.
 
 V14 photography: Pexels images 4266936, 8376266, 8413336, 5214997, 5327864 and 8376212. Source links are included with each photograph. These are illustrative stock photographs, not portraits of sample doctors. Photos load from the Pexels CDN and require internet access; offline fallback surfaces are provided. Design inspiration: https://www.apple.com/healthcare/ (no Apple assets or proprietary fonts copied).
 

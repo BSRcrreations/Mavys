@@ -6,7 +6,7 @@ const port=Number(process.env.PORT||5173);
 const store=await openStore(resolve(process.env.MAVYS_DATA||'.mavys-data/credentials.json'));
 const api=createApi(store,{secure:process.env.MAVYS_HTTPS==='1',origin:process.env.MAVYS_ORIGIN});
 const root=resolve(process.env.MAVYS_STATIC_DIR||'.');
-const classic=new Set(['index.html','legacy.html','styles.css','app.js','experience.js','experience.css','planner.js','planner.css','refinement.js','refinement.css','motion.js','motion.css','trail.js','trail.css','studio.js','studio.css','editorial.js','editorial.css','care.js','care.css','visual.js','visual.css','assets/sketch.jpg']);
+const classic=new Set(['index.html','legacy.html','styles.css','app.js','experience.js','experience.css','planner.js','planner.css','refinement.js','refinement.css','motion.js','motion.css','trail.js','trail.css','studio.js','studio.css','editorial.js','editorial.css','care.js','care.css','visual.js','visual.css','bridge.js','assets/sketch.jpg']);
 const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.jpg':'image/jpeg','.svg':'image/svg+xml','.png':'image/png','.woff2':'font/woff2'};
 createServer(async(req,res)=>{try{
  const path=new URL(req.url,'http://localhost').pathname;if(await api(req,res,path))return;
